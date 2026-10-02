@@ -12,7 +12,7 @@
 
 // Η διεύθυνση όπου φιλοξενείται η εφαρμογή της φόρμας (π.χ. https://eggrafi.vrilissiakos.gr/).
 // Αν οριστεί, το παράθυρο σύνδεσης δείχνει QR code για σάρωση από το tablet.
-const APP_URL = '';
+const APP_URL = 'https://gs-flipnewmedia.github.io/vrilissiakos-eggrafi/';
 
 const SHEET_NAME = 'Αιτήσεις';
 const FOLDER_NAME = 'Αιτήσεις Εγγραφής';
