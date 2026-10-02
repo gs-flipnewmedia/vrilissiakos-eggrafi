@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="el">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Αίτηση Εγγραφής – Βριλησσιακός Α.Ο.</title>
+  <meta name="description" content="Ψηφιακή αίτηση εγγραφής αθλητή/αθλήτριας στην Ακαδημία Μπάσκετ του Βριλησσιακού Αθλητικού Ομίλου.">
+  <meta name="theme-color" content="#1e2b5e">
+  <meta name="color-scheme" content="light">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Εγγραφή">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" type="image/png" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page">
+    <header class="masthead">
+      <img class="masthead__logo" src="logo.png" alt="Βριλησσιακός Α.Ο. – Basketball" width="115" height="130">
+      <div>
+        <p class="masthead__eyebrow">Βριλησσιακός Αθλητικός Όμιλος · Ακαδημία Μπάσκετ</p>
+        <h1 class="masthead__title">Αίτηση Εγγραφής</h1>
+      </div>
+    </header>
+
+    <form id="regForm" novalidate autocomplete="off">
+      <!-- Δείκτης βημάτων (μόνο στη μορφή «Βήματα») -->
+      <ol class="stepper" id="stepper" hidden>
+        <li><button type="button" data-step="0"><span>1</span>Αθλητής</button></li>
+        <li><button type="button" data-step="1"><span>2</span>Επικοινωνία</button></li>
+        <li><button type="button" data-step="2"><span>3</span>Δηλώσεις</button></li>
+        <li><button type="button" data-step="3"><span>4</span>Έλεγχος</button></li>
+        <li><button type="button" data-step="4"><span>5</span>Υπογραφή</button></li>
+      </ol>
+
+      <!-- 1. Αθλητής -->
+      <section class="card" aria-labelledby="sec-athlete">
+        <h2 class="card__title" id="sec-athlete"><span class="card__num">1</span>Προσωπικά στοιχεία αθλητή / αθλήτριας</h2>
+        <div class="grid">
+          <div class="field">
+            <label for="lastName">Επώνυμο <span class="req" aria-hidden="true">*</span></label>
+            <input id="lastName" name="lastName" type="text" required autocapitalize="words" enterkeyhint="next">
+            <p class="field__error" id="lastName-error"></p>
+          </div>
+          <div class="field">
+            <label for="firstName">Όνομα <span class="req" aria-hidden="true">*</span></label>
+            <input id="firstName" name="firstName" type="text" required autocapitalize="words" enterkeyhint="next">
+            <p class="field__error" id="firstName-error"></p>
+          </div>
+          <div class="field">
+            <label for="fatherName">Όνομα πατέρα <span class="req" aria-hidden="true">*</span></label>
+            <input id="fatherName" name="fatherName" type="text" required autocapitalize="words" enterkeyhint="next">
+            <p class="field__error" id="fatherName-error"></p>
+          </div>
+          <div class="field">
+            <label for="motherName">Όνομα μητέρας <span class="req" aria-hidden="true">*</span></label>
+            <input id="motherName" name="motherName" type="text" required autocapitalize="words" enterkeyhint="next">
+            <p class="field__error" id="motherName-error"></p>
+          </div>
+          <div class="field">
+            <label for="birthDateText">Ημερομηνία γέννησης <span class="req" aria-hidden="true">*</span></label>
+            <div class="datefield">
+              <input id="birthDateText" type="text" inputmode="numeric" maxlength="10" placeholder="ηη/μμ/εεεε" autocomplete="off" enterkeyhint="next" aria-describedby="birthDate-error">
+              <span class="datefield__btn" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="24" height="24"><rect x="3.5" y="5" width="17" height="15" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3.5 10h17M8 3v4M16 3v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+              </span>
+              <!-- Αόρατο ημερολόγιο της συσκευής, πάνω από το εικονίδιο -->
+              <input id="birthDate" name="birthDate" type="date" class="datefield__native" tabindex="-1" aria-label="Επιλογή από ημερολόγιο">
+            </div>
+            <p class="field__error" id="birthDate-error"></p>
+          </div>
+          <div class="field" aria-hidden="true"></div>
+          <div class="field field--wide">
+            <label for="street">Διεύθυνση (οδός &amp; αριθμός) <span class="req" aria-hidden="true">*</span></label>
+            <input id="street" name="street" type="text" required enterkeyhint="next">
+            <p class="field__error" id="street-error"></p>
+          </div>
+          <div class="field">
+            <label for="area">Περιοχή <span class="req" aria-hidden="true">*</span></label>
+            <input id="area" name="area" type="text" required autocapitalize="words" enterkeyhint="next" placeholder="π.χ. Βριλήσσια">
+            <p class="field__error" id="area-error"></p>
+          </div>
+          <div class="field">
+            <label for="postalCode">Τ.Κ.</label>
+            <input id="postalCode" name="postalCode" type="text" inputmode="numeric" maxlength="6" enterkeyhint="next" placeholder="152 35">
+            <p class="field__error" id="postalCode-error"></p>
+          </div>
+          <div class="field field--wide">
+            <label for="school">Σχολείο φοίτησης</label>
+            <input id="school" name="school" type="text" enterkeyhint="next">
+            <p class="field__error" id="school-error"></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. Επικοινωνία -->
+      <section class="card" aria-labelledby="sec-contact">
+        <h2 class="card__title" id="sec-contact"><span class="card__num">2</span>Στοιχεία επικοινωνίας</h2>
+        <div class="grid">
+          <div class="field">
+            <label for="email">E-mail <span class="req" aria-hidden="true">*</span></label>
+            <input id="email" name="email" type="email" inputmode="email" required autocapitalize="off" spellcheck="false" enterkeyhint="next">
+            <p class="field__error" id="email-error"></p>
+          </div>
+          <div class="field">
+            <label for="email2">Δεύτερο e-mail</label>
+            <input id="email2" name="email2" type="email" inputmode="email" autocapitalize="off" spellcheck="false" enterkeyhint="next">
+            <p class="field__error" id="email2-error"></p>
+          </div>
+          <div class="field">
+            <label for="phoneFather">Κινητό πατέρα</label>
+            <input id="phoneFather" name="phoneFather" type="tel" inputmode="tel" data-phone enterkeyhint="next" placeholder="π.χ. 6971234567">
+            <p class="field__error" id="phoneFather-error"></p>
+          </div>
+          <div class="field">
+            <label for="phoneMother">Κινητό μητέρας</label>
+            <input id="phoneMother" name="phoneMother" type="tel" inputmode="tel" data-phone enterkeyhint="next" placeholder="π.χ. 6971234567">
+            <p class="field__error" id="phoneMother-error"></p>
+          </div>
+          <p class="hint field--wide" id="parentPhoneHint">Συμπληρώστε τουλάχιστον ένα κινητό γονέα <span class="req" aria-hidden="true">*</span></p>
+          <div class="field">
+            <label for="phoneAthlete">Κινητό αθλητή / αθλήτριας</label>
+            <input id="phoneAthlete" name="phoneAthlete" type="tel" inputmode="tel" data-phone enterkeyhint="next">
+            <p class="field__error" id="phoneAthlete-error"></p>
+          </div>
+          <div class="field">
+            <label for="landline">Σταθερό τηλέφωνο</label>
+            <input id="landline" name="landline" type="tel" inputmode="tel" data-phone enterkeyhint="done" placeholder="π.χ. 2108001234">
+            <p class="field__error" id="landline-error"></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. Δηλώσεις -->
+      <section class="card" aria-labelledby="sec-consent">
+        <h2 class="card__title" id="sec-consent"><span class="card__num">3</span>Προς το Δ.Σ. του Βριλησσιακού Αθλητικού Ομίλου</h2>
+        <p class="prose">Με την παρούσα αίτηση παρακαλώ να εγκρίνετε την εγγραφή του / της γιου / κόρης μου ως αθλητή / αθλήτρια στην Ακαδημία του Βριλησσιακού Αθλητικού Ομίλου και δίνω τη συγκατάθεσή μου για τη συμμετοχή του / της στις δραστηριότητες του Συλλόγου.</p>
+
+        <fieldset class="consent" id="photoConsent" data-group="photoConsent">
+          <legend class="prose">Δίνω τη συγκατάθεσή μου στον Σύλλογο να χρησιμοποιεί τις φωτογραφίες του παιδιού μου, που λαμβάνονται εν ώρα προπονήσεων / αγώνων ή γενικά εκδηλώσεων που λαμβάνουν χώρα μέσα στο γήπεδο, στην ιστοσελίδα του Συλλόγου και στη σελίδα που διατηρεί στο Facebook. <span class="req" aria-hidden="true">*</span></legend>
+          <div class="choice">
+            <label class="choice__opt"><input type="radio" name="photoConsent" value="yes"><span>ΝΑΙ</span></label>
+            <label class="choice__opt"><input type="radio" name="photoConsent" value="no"><span>ΟΧΙ</span></label>
+          </div>
+          <p class="field__error" id="photoConsent-error"></p>
+        </fieldset>
+
+        <fieldset class="consent" id="dataConsent" data-group="dataConsent">
+          <legend class="prose">Δηλώνω υπεύθυνα ότι συναινώ στην επεξεργασία των προσωπικών μου δεδομένων που αναγράφω ανωτέρω από τον Βριλησσιακό Αθλητικό Όμιλο. <span class="req" aria-hidden="true">*</span></legend>
+          <div class="choice">
+            <label class="choice__opt"><input type="radio" name="dataConsent" value="yes"><span>ΝΑΙ</span></label>
+            <label class="choice__opt"><input type="radio" name="dataConsent" value="no"><span>ΟΧΙ</span></label>
+          </div>
+          <p class="field__error" id="dataConsent-error"></p>
+        </fieldset>
+      </section>
+
+      <!-- Έλεγχος στοιχείων (μόνο στη μορφή «Βήματα») -->
+      <section class="card card--review" aria-labelledby="sec-review" data-steps-only>
+        <h2 class="card__title" id="sec-review"><span class="card__num">4</span>Έλεγχος στοιχείων</h2>
+        <p class="prose">Ελέγξτε ότι τα στοιχεία είναι σωστά πριν υπογράψετε. Για διόρθωση πατήστε «Αλλαγή».</p>
+        <div class="review" id="review"></div>
+      </section>
+
+      <!-- 5. Υπογραφή -->
+      <section class="card" aria-labelledby="sec-sign">
+        <h2 class="card__title" id="sec-sign"><span class="card__num" data-num-steps="5">4</span>Υπογραφή γονέα / κηδεμόνα</h2>
+        <div class="grid">
+          <div class="field">
+            <label for="guardianName">Ονοματεπώνυμο γονέα / κηδεμόνα <span class="req" aria-hidden="true">*</span></label>
+            <input id="guardianName" name="guardianName" type="text" required autocapitalize="words" enterkeyhint="done">
+            <p class="field__error" id="guardianName-error"></p>
+          </div>
+          <div class="field">
+            <span class="label">Ημερομηνία</span>
+            <p class="static" id="todayLabel"></p>
+          </div>
+          <div class="field field--wide" id="signature" data-group="signature">
+            <span class="label" id="sigLabel">Υπογραφή <span class="req" aria-hidden="true">*</span></span>
+            <div class="sig">
+              <canvas id="sigCanvas" class="sig__canvas" aria-labelledby="sigLabel" role="img"></canvas>
+              <span class="sig__placeholder" id="sigPlaceholder">Υπογράψτε εδώ με το δάχτυλο ή γραφίδα</span>
+              <button type="button" class="sig__clear" id="sigClear">Καθαρισμός</button>
+            </div>
+            <p class="field__error" id="signature-error"></p>
+          </div>
+        </div>
+      </section>
+
+      <div class="actions">
+        <p class="actions__note"><span class="req">*</span> Απαραίτητη συμπλήρωση</p>
+        <div class="actions__btns">
+          <button type="button" class="btn btn--lg" id="prevBtn" hidden>Πίσω</button>
+          <button type="button" class="btn btn--primary btn--lg" id="nextBtn" hidden>Επόμενο</button>
+          <button type="submit" class="btn btn--primary btn--lg" id="submitBtn">Υποβολή αίτησης</button>
+        </div>
+      </div>
+    </form>
+
+    <footer class="footer">
+      <p>Ολύμπου 19, 152 35 Βριλήσσια · τηλ. 697 852 2982 – 694 859 7130</p>
+      <p>www.vrilissiakos.gr · info@vrilissiakos.gr</p>
+      <button type="button" class="footer__admin" id="adminOpen">Διαχείριση<span id="pendingInfo"></span></button>
+    </footer>
+  </div>
+
+  <!-- Επιτυχής υποβολή -->
+  <div class="overlay" id="success" hidden>
+    <div class="overlay__box" role="alertdialog" aria-labelledby="successTitle" aria-describedby="successText">
+      <div class="overlay__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="40" height="40"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <h2 id="successTitle">Η αίτηση καταχωρήθηκε</h2>
+      <p id="successText">Ευχαριστούμε! Η αίτηση εγγραφής για <strong id="successName"></strong> υποβλήθηκε επιτυχώς.</p>
+      <button type="button" class="btn btn--primary btn--lg" id="newForm">Νέα αίτηση</button>
+      <p class="overlay__timer" id="successTimer"></p>
+    </div>
+  </div>
+
+  <!-- PIN διαχειριστή -->
+  <dialog class="dialog" id="pinDialog">
+    <form method="dialog" id="pinForm">
+      <h2>Διαχείριση</h2>
+      <p class="muted">Εισάγετε το PIN διαχειριστή.</p>
+      <input id="pinInput" type="password" inputmode="numeric" autocomplete="off" maxlength="12" aria-label="PIN">
+      <p class="field__error" id="pinError"></p>
+      <p class="muted" id="pinHint">Αρχικό PIN: 1234. Αλλάξτε το από τις Ρυθμίσεις.</p>
+      <div class="dialog__actions">
+        <button type="button" class="btn" id="pinCancel">Άκυρο</button>
+        <button type="submit" class="btn btn--primary">Είσοδος</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- Πίνακας διαχείρισης -->
+  <dialog class="dialog dialog--wide" id="adminDialog">
+    <div class="admin">
+      <div class="admin__head">
+        <h2>Διαχείριση</h2>
+        <button type="button" class="btn" id="adminClose">Κλείσιμο</button>
+      </div>
+      <div class="tabs" role="tablist">
+        <button type="button" role="tab" class="tabs__tab" id="tab-list" aria-controls="panel-list" aria-selected="true">Αιτήσεις <span class="badge" id="adminCount">0</span></button>
+        <button type="button" role="tab" class="tabs__tab" id="tab-settings" aria-controls="panel-settings" aria-selected="false">Ρυθμίσεις</button>
+      </div>
+
+      <div role="tabpanel" id="panel-list" aria-labelledby="tab-list">
+        <p class="muted" id="adminIntro"></p>
+        <div class="admin__toolbar">
+          <button type="button" class="btn btn--primary" id="syncNow" hidden>Αποστολή τώρα στο Google Sheet</button>
+          <button type="button" class="btn" id="exportCsv">Εξαγωγή Excel (CSV)</button>
+          <button type="button" class="btn" id="exportJson">Πλήρες αντίγραφο (JSON)</button>
+          <button type="button" class="btn" id="printAll">Εκτύπωση / PDF όλων</button>
+          <button type="button" class="btn btn--danger" id="deleteAll">Διαγραφή όλων</button>
+        </div>
+        <div class="admin__list" id="adminList"></div>
+      </div>
+
+      <div role="tabpanel" id="panel-settings" aria-labelledby="tab-settings" hidden>
+        <form class="setting" id="sheetForm">
+          <h3>Σύνδεση με Google Sheet</h3>
+          <p class="muted">Στο Google Sheet της ομάδας επιλέξτε <b>Εγγραφές → Σύνδεση tablet</b> και επικολλήστε εδώ τον κωδικό σύνδεσης.</p>
+          <label class="setting__label" for="connectCode">Κωδικός σύνδεσης</label>
+          <div class="setting__row setting__row--tight">
+            <input id="connectCode" type="text" spellcheck="false" autocapitalize="off" autocomplete="off" placeholder="VRL1.…">
+            <button type="button" class="btn btn--primary" id="applyCode">Σύνδεση</button>
+          </div>
+          <details class="setting__advanced">
+            <summary>Χειροκίνητη ρύθμιση</summary>
+            <label class="setting__label" for="scriptUrl">URL Apps Script</label>
+            <input id="scriptUrl" type="url" inputmode="url" spellcheck="false" autocapitalize="off" placeholder="https://script.google.com/macros/s/…/exec">
+            <label class="setting__label" for="scriptSecret">Κωδικός ασφαλείας</label>
+            <input id="scriptSecret" type="password" spellcheck="false" autocapitalize="off" autocomplete="off">
+          </details>
+          <label class="check"><input type="checkbox" id="deleteAfterSync"> Διαγραφή από τη συσκευή μόλις επιβεβαιωθεί η αποστολή</label>
+          <div class="setting__row">
+            <button type="submit" class="btn btn--primary">Αποθήκευση</button>
+            <button type="button" class="btn" id="testSheet">Δοκιμή σύνδεσης</button>
+            <button type="button" class="btn btn--danger" id="disconnectSheet">Αποσύνδεση</button>
+          </div>
+          <p class="setting__status" id="sheetStatus" role="status"></p>
+        </form>
+
+        <div class="setting">
+          <h3>Μορφή φόρμας</h3>
+          <p class="muted">Η αλλαγή εφαρμόζεται αμέσως σε αυτό το tablet.</p>
+          <div class="choice choice--sm">
+            <label class="choice__opt"><input type="radio" name="formMode" value="single"><span>Μία σελίδα</span></label>
+            <label class="choice__opt"><input type="radio" name="formMode" value="steps"><span>Σε βήματα</span></label>
+          </div>
+        </div>
+
+        <form class="setting" id="changePinForm">
+          <h3>Αλλαγή PIN</h3>
+          <div class="setting__row">
+            <input id="newPin" type="password" inputmode="numeric" minlength="4" maxlength="12" placeholder="Νέο PIN (4–12 ψηφία)" autocomplete="off" aria-label="Νέο PIN">
+            <button type="submit" class="btn">Αποθήκευση</button>
+            <span class="muted" id="pinSaved"></span>
+          </div>
+        </form>
+      </div>
+    </div>
+  </dialog>
+
+  <div id="printArea" class="print-area" aria-hidden="true"></div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>

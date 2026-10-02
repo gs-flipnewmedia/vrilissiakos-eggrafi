@@ -1,0 +1,6 @@
+.claude/
+*.csv
+*.json.bak
+aitiseis-*.json
+Thumbs.db
+.DS_Store
